@@ -1,0 +1,86 @@
+﻿					
+						OM
+
+	EMQ – the message protocol for interoperable M2M co-operation at million  scale ( whatsapp is the example for that) at zero latency
+
+
+
+1. understanding the Publishing and subscribing pattern :
+
+- subscriber ( can be any node in the network , generally non hierarchial) subscribes topic from broker. 
+- topic has hierarchial structure consisting of different sessions which can then specify the schema for the exchange happening on the given channel of the broker. (e.g : chat/room/subject & presence/user/name) . 
+
+Example  for some of the capablities :
+
+    Complete MQTT V3.1/V3.1.1 and V5.0 protocol specification support
+    Three QoS level: QoS0, QoS1 and QoS2
+    Persistent session and offline message
+    Retained message
+    Last Will message
+    TCP/SSL
+    MQTT/WebSocket/SSL
+    HTTP message publishing interface
+    $SYS/# (system topics)
+    client status via query and subscription
+    Authentication based on Client ID, Username or IP address
+    integration with Redis, MySQL, PostgreSQL, MongoDB, HTTP and LDAP (authentication and authorization)
+    Browser cookie authentication
+    Access Control (ACL) based on client ID, IP address, and username
+    Cluster
+    Diverse cluster node discovery methods: manual, mcast, dns, etcd, k8s and etc
+    Auto healing of network split
+    Message rate limit
+    Connection rate limit
+    Configuring nodes by zone
+    Bridging of multiple brokers via RPC
+    Bridging of multiple brokers via MQTT
+    Stomp protocol support
+    MQTT-SN protocol support
+    CoAP protocol support
+    SockJS support
+    Delayed publish ($delay/topic)
+    Flapping detection
+    Blacklist support
+    Shared subscription ($share/<group>/topic)
+    TLS/PSK support
+    Rule engine
+
+
+
+the general architecture for  an example of showing how the component can send the general hierarchy  of data which can be routed to thhe different type of the devices by  filtering the messages .
+
+
+
+
+The default TCP ports used by the EMQ X message server : this can be the gold mine for you as  you can indeed get the reading of the data on the shodan . 
+Example of java based mosquito_sub/pub client on the command line 
+mosquitto_sub -h 127.0.0.1<or localhost> -p 1883 -t topic -q 2
+
+
+1883
+MQTT protocol port
+8883
+MQTT/SSL port
+8083
+MQTT/WebSocket port
+8080
+HTTP API port
+18083
+Dashboard Management Console Port
+
+
+
+ Now for the authentication: use of some plugins for checking the schema of the request and also integrity of the device.
+
+
+
+
+These can be set in the eqmx.conf : python script for taking the input and then setting automatic script will do the trick.
+
+Now for the selecting the type of the control restrictions on computing hardware and the  packets :
+access control list :
+
+
+
+
+
